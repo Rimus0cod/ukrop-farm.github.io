@@ -27,7 +27,6 @@ const roster = [
     role: 'POSITION 3',
     roleRu: 'Offlane',
     steam: 'https://steamcommunity.com/id/platinarnbklub',
-    steamId: '76561199084114532',
     active: true
   },
   {
