@@ -162,7 +162,7 @@
       const rank = rankMeta(player.rank);
       const hero = player.favoriteHero || '';
       const heroImage = hero
-        ? 'https://www.opendota.com/assets/images/dota2/heroes/' + heroSlug(hero) + '.png'
+        ? 'https://raw.githubusercontent.com/odota/web/master/public/assets/images/dota2/heroes/' + heroSlug(hero) + '.png'
         : '';
       const medal = rank.tier
         ? '<img class="rank-medal" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/rank_icons/rank_icon_' + rank.tier + '.png" alt="" loading="lazy">'
