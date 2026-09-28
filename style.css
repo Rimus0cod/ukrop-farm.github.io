@@ -304,9 +304,6 @@ code { color: var(--paper); }
   filter: saturate(.9) contrast(1.05);
 }
 .hero-icon { object-position: center; }
-@media (max-width: 1050px) {
-  .rank-hero-block { grid-template-columns: 1fr; }
-}
 @media (max-width: 760px) {
   .rank-hero-block { grid-template-columns: 1fr 1fr; }
 }
