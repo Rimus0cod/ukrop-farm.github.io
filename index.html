@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07100a">
-  <meta name="description" content="Ukrop Farm — amateur Dota 2 team. Green fields, sharp calls, zero farming exceptions.">
+  <meta name="description" content="Ukrop Farm — любительская команда Dota 2.">
   <title>UKROP FARM — Dota 2</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,33 +17,30 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Ukrop Farm home">
       <span class="brand-mark">UF</span>
-      <span>
-        <strong>UKROP FARM</strong>
-        <em>PRO / DOTA 2</em>
-      </span>
+      <span><strong>UKROP FARM</strong><em>PRO / DOTA 2</em></span>
     </a>
-    <nav class="nav" aria-label="Main navigation">
-      <a class="active" href="#top">HOME</a>
-      <a href="#roster">ROSTER</a>
-      <a href="#about">ABOUT</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a class="nav-link active" href="#top" data-section="top">ГЛАВНАЯ</a>
+      <a class="nav-link" href="#roster" data-section="roster">СОСТАВ</a>
+      <a class="nav-link" href="#about" data-section="about">ИСТОРИЯ</a>
     </nav>
     <div class="team-id">TEAM ID <b>10272953</b></div>
   </header>
 
   <main id="top">
-    <section class="hero section-shell">
+    <section class="hero section-shell" data-observe="top">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> UKRAINE / AMATEUR DOTA 2</p>
+        <p class="eyebrow"><span></span> УКРАИНА / AMATEUR DOTA 2</p>
         <h1>UKROP<br><span>FARM</span></h1>
         <p class="jp-line">ウクロップ・ファーム</p>
         <p class="tagline">НЕ ФІД, А ВРОЖАЙ.</p>
-        <p class="lead">A small crew, a loud draft, and a field that never stays empty.</p>
+        <p class="lead">Пять игроков, один стак и достаточно плохих решений, чтобы каждый матч запомнился.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#roster">MEET THE ROSTER <span>↘</span></a>
-          <a class="button button-ghost" href="#about">READ THE STORY</a>
+          <a class="button button-primary" href="#roster">СМОТРЕТЬ СОСТАВ <span>↘</span></a>
+          <a class="button button-ghost" href="#about">ИСТОРИЯ КОМАНДЫ</a>
         </div>
         <div class="hero-meta">
-          <span><i class="dot"></i> ACTIVE ROSTER</span>
+          <span><i class="dot"></i> АКТИВНЫЙ СОСТАВ</span>
           <span>TEAM / 10272953</span>
         </div>
       </div>
@@ -51,42 +48,52 @@
       <div class="hero-emblem">
         <div class="emblem-frame"></div>
         <div class="emblem-caption">青 <span>+</span> 緑</div>
-        <img src="assets/ukrop-farm-logo.jpg" alt="Ukrop Farm team logo">
+        <img src="assets/ukrop-farm-logo.jpg" alt="Логотип Ukrop Farm">
         <div class="stamp">UF<br><small>五人 / 一畑</small></div>
       </div>
     </section>
 
-    <section id="roster" class="roster section-shell">
+    <section id="roster" class="roster section-shell" data-observe="roster">
       <div class="section-heading">
         <div>
           <p class="eyebrow"><span></span> CURRENT SQUAD</p>
-          <h2>THE FIELD</h2>
+          <h2>СОСТАВ</h2>
         </div>
-        <p class="section-note">Five slots. One banner.<br>Steam links are wired in.</p>
+        <p class="section-note">Аватар, ранг и любимый герой<br>обновляются автоматически.</p>
       </div>
-
-      <div id="roster-grid" class="roster-grid" aria-live="polite"></div>
-
+      <div id="roster-grid" class="roster-grid" aria-live="polite">
+        <div class="roster-loading">ЗАГРУЗКА ПРОФИЛЕЙ…</div>
+      </div>
       <div class="roster-editor-note">
-        <span>⌘</span>
-        Edit player names / roles / Steam URLs in <code>roster.js</code>.
+        <span>↻</span>
+        Данные игроков синхронизируются из Steam и Dotabuff через GitHub Actions.
+        Если профиль закрыт или Dotabuff не отдаёт данные, показывается последнее сохранённое значение.
       </div>
     </section>
 
-    <section id="about" class="about section-shell">
+    <section id="about" class="about section-shell" data-observe="about">
       <div class="about-art" aria-hidden="true">
-        <div class="torii"><span></span><i></i><b></b></div>
-        <div class="vertical-word">FARM TO FIGHT</div>
+        <div class="team-seal"><span>UF</span><small>UKROP FARM</small></div>
+        <div class="vertical-word">TEAM / 10272953</div>
       </div>
       <div class="about-copy">
-        <p class="eyebrow"><span></span> FIELD NOTES</p>
-        <h2>NO FANCY ORG.<br><span>JUST GOOD DOTA.</span></h2>
-        <p>Ukrop Farm is an amateur Dota 2 stack built around relaxed sessions, familiar faces and the occasional criminal smoke call.</p>
+        <p class="eyebrow"><span></span> ИСТОРИЯ</p>
+        <h2>ОТ СТАКА<br><span>К КОМАНДЕ.</span></h2>
+        <p>
+          Ukrop Farm — любительская команда Dota 2, собранная вокруг обычной вещи:
+          хотелось играть вместе, а не просто искать случайных людей в паблике.
+          Со временем у стака появились свой состав, название, логотип и собственный стиль.
+        </p>
+        <p>
+          Сейчас команда держится на пяти позициях, регулярных играх и простом принципе:
+          меньше пафоса, больше Dota. Здесь не пытаются изображать киберспортивную организацию —
+          это команда друзей, которая постепенно превращает общий стак в настоящий командный проект.
+        </p>
         <div class="facts">
-          <div><small>REGION</small><strong>UA / EU</strong></div>
-          <div><small>GAME</small><strong>DOTA 2</strong></div>
-          <div><small>TYPE</small><strong>AMATEUR</strong></div>
-          <div><small>MANTRA</small><strong>НЕ ФІД, А ВРОЖАЙ</strong></div>
+          <div><small>РЕГИОН</small><strong>UA / EU</strong></div>
+          <div><small>ИГРА</small><strong>DOTA 2</strong></div>
+          <div><small>ФОРМАТ</small><strong>ЛЮБИТЕЛЬСКИЙ</strong></div>
+          <div><small>СОСТАВ</small><strong>5 ПОЗИЦИЙ</strong></div>
         </div>
       </div>
     </section>
@@ -95,37 +102,78 @@
   <footer class="site-footer section-shell">
     <div>UKROP FARM <span>© 2026</span></div>
     <div class="footer-jp">農場戦隊 / PLAY FOR FUN</div>
-    <a href="#top">BACK TO TOP ↑</a>
+    <a href="#top">НАВЕРХ ↑</a>
   </footer>
 
   <script src="roster.js"></script>
   <script>
     const grid = document.getElementById('roster-grid');
-    const roleNames = ['POSITION 1', 'POSITION 2', 'POSITION 3', 'POSITION 4', 'POSITION 5'];
+    const roleNames = ['ПОЗИЦИЯ 1', 'ПОЗИЦИЯ 2', 'ПОЗИЦИЯ 3', 'ПОЗИЦИЯ 4', 'ПОЗИЦИЯ 5'];
+
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[ch]));
 
     function cardTemplate(player, index) {
-      const ready = player.steam && player.steam.trim() && !player.steam.includes('CHANGE_ME');
+      const ready = player.steam && !player.steam.includes('CHANGE_ME');
       const steam = ready
-        ? `<a class="steam-link" href="${player.steam}" target="_blank" rel="noopener noreferrer">STEAM ↗</a>`
-        : `<span class="steam-link disabled">STEAM / ADD URL</span>`;
-      const photo = player.photo || `https://api.dicebear.com/9.x/thumbs/svg?seed=${encodeURIComponent(player.nick || `ukrop-${index}`)}`;
+        ? '<a class="steam-link" href="' + escapeHtml(player.steam) + '" target="_blank" rel="noopener noreferrer">STEAM ↗</a>'
+        : '<span class="steam-link disabled">STEAM / НЕТ ССЫЛКИ</span>';
+      const photo = player.avatar || player.photo || 'assets/player-placeholder.svg';
+      const rank = player.rank || 'Нет данных';
+      const hero = player.favoriteHero || 'Нет данных';
       return `
         <article class="player-card">
-          <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'STANDBY' : 'ACTIVE'}</span></div>
+          <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'ЗАПАС' : 'АКТИВЕН'}</span></div>
           <div class="player-photo-wrap">
             <div class="player-grid"></div>
-            <img class="player-photo" src="${photo}" alt="${player.nick || 'Ukrop Farm player'} portrait">
-            <div class="player-role">${player.role || roleNames[index] || 'PLAYER'}</div>
+            <img class="player-photo" src="${escapeHtml(photo)}" alt="Аватар ${escapeHtml(player.nick)}" loading="lazy">
+            <div class="player-role">${escapeHtml(player.role || roleNames[index] || 'ИГРОК')}</div>
           </div>
           <div class="player-info">
-            <h3>${player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0')}</h3>
-            <p>${player.name || 'Roster slot'}</p>
+            <h3>${escapeHtml(player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0'))}</h3>
+            <p>${escapeHtml(player.name || 'Игрок')} · ${escapeHtml(player.roleRu || '')}</p>
+            <div class="player-stats">
+              <div><small>РАНГ</small><strong>${escapeHtml(rank)}</strong></div>
+              <div><small>ЛЮБИМЫЙ ГЕРОЙ</small><strong>${escapeHtml(hero)}</strong></div>
+            </div>
             ${steam}
           </div>
         </article>`;
     }
 
-    roster.forEach((player, index) => grid.insertAdjacentHTML('beforeend', cardTemplate(player, index)));
+    async function loadRoster() {
+      try {
+        const response = await fetch('data/players.json?v=' + Date.now(), { cache: 'no-store' });
+        if (!response.ok) throw new Error('players.json: ' + response.status);
+        const data = await response.json();
+        const players = data.players || [];
+        grid.innerHTML = players.map(cardTemplate).join('');
+      } catch (error) {
+        console.error(error);
+        grid.innerHTML = roster.map(cardTemplate).join('');
+      }
+    }
+
+    loadRoster();
+
+    const links = [...document.querySelectorAll('.nav-link')];
+    const sections = [...document.querySelectorAll('[data-observe]')];
+
+    function setActive(id) {
+      links.forEach(link => link.classList.toggle('active', link.dataset.section === id));
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.dataset.observe);
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] });
+
+    sections.forEach(section => observer.observe(section));
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.replace('#','') || 'top';
+      setActive(id);
+    });
   </script>
 </body>
 </html>
