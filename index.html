@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07100a">
+  <meta name="description" content="Ukrop Farm — amateur Dota 2 team. Green fields, sharp calls, zero farming exceptions.">
+  <title>UKROP FARM — Dota 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="sun-disc" aria-hidden="true"></div>
+  <div class="kanji-rail kanji-left" aria-hidden="true">勝<br>負<br>農<br>場</div>
+  <div class="kanji-rail kanji-right" aria-hidden="true">ウ<br>ク<br>ロ<br>プ</div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ukrop Farm home">
+      <span class="brand-mark">UF</span>
+      <span><strong>UKROP FARM</strong><em>PRO / DOTA 2</em></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="active" href="#top">HOME</a>
+      <a href="#roster">ROSTER</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+    <div class="team-id">TEAM ID <b>10272953</b></div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> UKRAINE / AMATEUR DOTA 2</p>
+        <h1>UKROP<br><span>FARM</span></h1>
+        <p class="jp-line">ウクロップ・ファーム</p>
+        <p class="tagline">НЕ ФІД, А ВРОЖАЙ.</p>
+        <p class="lead">A small crew, a loud draft, and a field that never stays empty.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#roster">MEET THE ROSTER <span>↘</span></a>
+          <a class="button button-ghost" href="#about">READ THE STORY</a>
+        </div>
+        <div class="hero-meta">
+          <span><i class="dot"></i> ACTIVE ROSTER</span>
+          <span>TEAM / 10272953</span>
+        </div>
+      </div>
+
+      <div class="hero-emblem">
+        <div class="emblem-frame"></div>
+        <div class="emblem-caption">青 <span>+</span> 緑</div>
+        <img src="ukrop-farm-site/assets/ukrop-farm-logo.jpg" alt="Ukrop Farm team logo">
+        <div class="stamp">UF<br><small>五人 / 一畑</small></div>
+      </div>
+    </section>
+
+    <section id="roster" class="roster section-shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span></span> CURRENT SQUAD</p>
+          <h2>THE FIELD</h2>
+        </div>
+        <p class="section-note">Five slots. One banner.<br>Steam links are wired in.</p>
+      </div>
+
+      <div id="roster-grid" class="roster-grid" aria-live="polite"></div>
+
+      <div class="roster-editor-note">
+        <span>⌘</span>
+        Edit player names / roles / Steam URLs in <code>roster.js</code>.
+      </div>
+    </section>
+
+    <section id="about" class="about section-shell">
+      <div class="about-art" aria-hidden="true">
+        <div class="torii"><span></span><i></i><b></b></div>
+        <div class="vertical-word">FARM TO FIGHT</div>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow"><span></span> FIELD NOTES</p>
+        <h2>NO FANCY ORG.<br><span>JUST GOOD DOTA.</span></h2>
+        <p>Ukrop Farm is an amateur Dota 2 stack built around relaxed sessions, familiar faces and the occasional criminal smoke call.</p>
+        <div class="facts">
+          <div><small>REGION</small><strong>UA / EU</strong></div>
+          <div><small>GAME</small><strong>DOTA 2</strong></div>
+          <div><small>TYPE</small><strong>AMATEUR</strong></div>
+          <div><small>MANTRA</small><strong>НЕ ФІД, А ВРОЖАЙ</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div>UKROP FARM <span>© 2026</span></div>
+    <div class="footer-jp">農場戦隊 / PLAY FOR FUN</div>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <script src="roster.js"></script>
+  <script>
+    const grid = document.getElementById('roster-grid');
+    const roleNames = ['POSITION 1', 'POSITION 2', 'POSITION 3', 'POSITION 4', 'POSITION 5'];
+    function cardTemplate(player, index) {
+      const ready = player.steam && player.steam.trim() && !player.steam.includes('CHANGE_ME');
+      const steam = ready
+        ? `<a class="steam-link" href="${player.steam}" target="_blank" rel="noopener noreferrer">STEAM ↗</a>`
+        : `<span class="steam-link disabled">STEAM / ADD URL</span>`;
+      const photo = player.photo || `https://api.dicebear.com/9.x/thumbs/svg?seed=${encodeURIComponent(player.nick || `ukrop-${index}`)}`;
+      return `
+        <article class="player-card">
+          <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'STANDBY' : 'ACTIVE'}</span></div>
+          <div class="player-photo-wrap">
+            <div class="player-grid"></div>
+            <img class="player-photo" src="${photo}" alt="${player.nick || 'Ukrop Farm player'} portrait">
+            <div class="player-role">${player.role || roleNames[index] || 'PLAYER'}</div>
+          </div>
+          <div class="player-info">
+            <h3>${player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0')}</h3>
+            <p>${player.name || 'Roster slot'}</p>
+            ${steam}
+          </div>
+        </article>`;
+    }
+    roster.forEach((player, index) => grid.insertAdjacentHTML('beforeend', cardTemplate(player, index)));
+  </script>
+</body>
+</html>
