@@ -114,14 +114,59 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
     }[ch]));
 
+    const HERO_SLUGS = {
+      'Invoker': 'invoker',
+      'Keeper of the Light': 'keeper_of_the_light',
+      'Timbersaw': 'timbersaw',
+      'Bounty Hunter': 'bounty_hunter',
+      'Jakiro': 'jakiro'
+    };
+
+    const RANK_TIERS = {
+      Herald: 1,
+      Guardian: 2,
+      Crusader: 3,
+      Archon: 4,
+      Legend: 5,
+      Ancient: 6,
+      Divine: 7,
+      Immortal: 8
+    };
+
+    function rankMeta(rank) {
+      const value = String(rank || '').trim();
+      const tierName = Object.keys(RANK_TIERS).find(name => value.toLowerCase().startsWith(name.toLowerCase()));
+      return {
+        name: tierName || value || 'Нет данных',
+        tier: tierName ? RANK_TIERS[tierName] : null,
+        stars: (value.match(/\\d+/) || [])[0] || ''
+      };
+    }
+
+    function heroSlug(hero) {
+      const value = String(hero || '').trim();
+      if (HERO_SLUGS[value]) return HERO_SLUGS[value];
+      return value
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_|_$/g, '');
+    }
+
     function cardTemplate(player, index) {
       const ready = player.steam && !player.steam.includes('CHANGE_ME');
       const steam = ready
         ? '<a class="steam-link" href="' + escapeHtml(player.steam) + '" target="_blank" rel="noopener noreferrer">STEAM ↗</a>'
         : '<span class="steam-link disabled">STEAM / НЕТ ССЫЛКИ</span>';
       const photo = player.avatar || player.photo || 'assets/player-placeholder.svg';
-      const rank = player.rank || 'Нет данных';
-      const hero = player.favoriteHero || 'Нет данных';
+      const rank = rankMeta(player.rank);
+      const hero = player.favoriteHero || '';
+      const heroImage = hero
+        ? 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/' + heroSlug(hero) + '.png'
+        : '';
+      const medal = rank.tier
+        ? '<img class="rank-medal" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/rank_icons/rank_icon_' + rank.tier + '.png" alt="" loading="lazy">'
+        : '<span class="rank-medal-fallback">?</span>';
       return `
         <article class="player-card">
           <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'ЗАПАС' : 'АКТИВЕН'}</span></div>
@@ -133,9 +178,26 @@
           <div class="player-info">
             <h3>${escapeHtml(player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0'))}</h3>
             <p>${escapeHtml(player.name || 'Игрок')} · ${escapeHtml(player.roleRu || '')}</p>
-            <div class="player-stats">
-              <div><small>РАНГ</small><strong>${escapeHtml(rank)}</strong></div>
-              <div><small>ЛЮБИМЫЙ ГЕРОЙ</small><strong>${escapeHtml(hero)}</strong></div>
+            <div class="player-meta-row">
+              <div class="rank-hero-block">
+                <div class="rank-visual" title="${escapeHtml(player.rank || 'Нет данных')}">
+                  ${medal}
+                  <div class="rank-copy">
+                    <small>RANK</small>
+                    <strong>${escapeHtml(rank.name)}</strong>
+                    ${rank.stars ? '<span class="rank-stars">' + escapeHtml(rank.stars) + ' ★</span>' : ''}
+                  </div>
+                </div>
+                <div class="hero-visual" title="${escapeHtml(hero || 'Нет данных')}">
+                  ${heroImage
+                    ? '<img class="hero-icon" src="' + escapeHtml(heroImage) + '" alt="' + escapeHtml(hero) + '" loading="lazy">'
+                    : '<span class="hero-icon-fallback">?</span>'}
+                  <div class="hero-copy">
+                    <small>HERO</small>
+                    <strong>${escapeHtml(hero || 'Нет данных')}</strong>
+                  </div>
+                </div>
+              </div>
             </div>
             ${steam}
           </div>
