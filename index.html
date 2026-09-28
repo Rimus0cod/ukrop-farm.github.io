@@ -144,7 +144,7 @@
 
     async function loadRoster() {
       try {
-        const response = await fetch('data/players.json?v=' + Date.now(), { cache: 'no-store' });
+        const response = await fetch('players.json?v=' + Date.now(), { cache: 'no-store' });
         if (!response.ok) throw new Error('players.json: ' + response.status);
         const data = await response.json();
         const players = data.players || [];
