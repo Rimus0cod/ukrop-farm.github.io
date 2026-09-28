@@ -227,3 +227,17 @@ code { color: var(--paper); }
   .facts { grid-template-columns: 1fr; }
   .facts div:nth-child(odd) { border-right: 0; }
 }
+
+/* v2: live roster cards + team history */
+.roster-loading { grid-column: 1 / -1; padding: 40px; border: 1px dashed var(--line); color: var(--muted); font-size: 10px; letter-spacing: .18em; text-align: center; }
+.player-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: -2px 0 12px; }
+.player-stats div { min-width: 0; padding: 9px 8px; border: 1px solid rgba(236,231,220,.10); background: rgba(0,0,0,.16); }
+.player-stats small { display: block; color: var(--muted); font-size: 7px; letter-spacing: .12em; margin-bottom: 5px; }
+.player-stats strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--paper); font-size: 10px; letter-spacing: .02em; }
+.team-seal { position: absolute; inset: 17% 17%; display: grid; place-items: center; align-content: center; border: 1px solid rgba(141,245,72,.35); transform: rotate(-5deg); background: radial-gradient(circle, rgba(141,245,72,.08), transparent 65%); }
+.team-seal::before, .team-seal::after { content: ''; position: absolute; inset: 8%; border: 1px solid rgba(242,207,46,.22); border-radius: 50%; }
+.team-seal::after { inset: 18%; border-color: rgba(219,56,45,.24); }
+.team-seal span { color: var(--green); font-size: clamp(70px, 10vw, 120px); font-weight: 900; letter-spacing: -.08em; z-index: 1; }
+.team-seal small { color: var(--muted); font-size: 8px; letter-spacing: .28em; z-index: 1; margin-top: -5px; }
+.about-copy > p:not(.eyebrow) + p:not(.eyebrow) { margin-top: -18px; }
+@media (max-width: 1050px) { .player-stats { grid-template-columns: 1fr; } }
