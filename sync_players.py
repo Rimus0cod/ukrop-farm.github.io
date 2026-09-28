@@ -91,9 +91,41 @@ def parse_dotabuff(steam_id):
                 break
     return result
 
+def load_hero_names():
+    r = requests.get("https://api.opendota.com/api/constants/heroes", headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    return {int(k): v.get("localized_name", str(k)) for k, v in r.json().items()}
+
+def parse_opendota(steam_id, hero_names):
+    result = {}
+    player_id = steam32(steam_id)
+    profile = requests.get(f"https://api.opendota.com/api/players/{player_id}", headers=HEADERS, timeout=30)
+    profile.raise_for_status()
+    rank_tier = profile.json().get("rank_tier")
+    if rank_tier:
+        rank_tier = int(rank_tier)
+        medals = {1:"Herald",2:"Guardian",3:"Crusader",4:"Archon",5:"Legend",6:"Ancient",7:"Divine",8:"Immortal"}
+        medal, stars = divmod(rank_tier, 10)
+        if medal in medals:
+            result["rank"] = medals[medal] + (f" {stars}" if stars and medal < 8 else "")
+    heroes = requests.get(f"https://api.opendota.com/api/players/{player_id}/heroes", headers=HEADERS, timeout=30)
+    heroes.raise_for_status()
+    rows = heroes.json()
+    if rows:
+        best = max(rows, key=lambda row: (row.get("games", 0), row.get("last_played", 0)))
+        hero_id = best.get("hero_id")
+        if hero_id in hero_names:
+            result["favoriteHero"] = hero_names[hero_id]
+    return result
+
 def main():
     old = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {"players":[]}
     old_by_id = {p.get("steamId"): p for p in old.get("players", []) if p.get("steamId")}
+    try:
+        hero_names = load_hero_names()
+    except Exception as e:
+        print("OpenDota constants:", e)
+        hero_names = {}
     players = []
     for p in parse_roster():
         try:
@@ -107,8 +139,14 @@ def main():
                 print("Steam:", sid, e)
             try:
                 merged.update(parse_dotabuff(sid))
+                merged["dataSource"] = "Dotabuff"
             except Exception as e:
                 print("Dotabuff:", sid, e)
+                try:
+                    merged.update(parse_opendota(sid, hero_names))
+                    merged["dataSource"] = "OpenDota fallback"
+                except Exception as fallback_error:
+                    print("OpenDota:", sid, fallback_error)
             merged["dotabuff"] = f"https://www.dotabuff.com/players/{steam32(sid)}"
             players.append(merged)
         except Exception as e:
@@ -116,7 +154,7 @@ def main():
             players.append({**old_by_id.get(p.get("steamId"), {}), **p})
     OUT.write_text(json.dumps({
         "updatedAt": datetime.now(timezone.utc).isoformat(),
-        "source": "Steam + Dotabuff",
+        "source": "Steam + Dotabuff (OpenDota fallback)",
         "players": players
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
