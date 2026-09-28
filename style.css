@@ -241,3 +241,76 @@ code { color: var(--paper); }
 .team-seal small { color: var(--muted); font-size: 8px; letter-spacing: .28em; z-index: 1; margin-top: -5px; }
 .about-copy > p:not(.eyebrow) + p:not(.eyebrow) { margin-top: -18px; }
 @media (max-width: 1050px) { .player-stats { grid-template-columns: 1fr; } }
+
+
+/* v3: Dota 2 medal + hero visual metadata */
+.player-meta-row { margin: -2px 0 12px; }
+.rank-hero-block { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.rank-visual, .hero-visual {
+  min-width: 0;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 7px;
+  border: 1px solid rgba(236,231,220,.10);
+  background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(0,0,0,.18));
+}
+.rank-medal, .rank-medal-fallback {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 7px rgba(0,0,0,.5));
+}
+.rank-medal-fallback, .hero-icon-fallback {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(236,231,220,.12);
+  color: var(--muted);
+  font-size: 13px;
+}
+.rank-copy, .hero-copy { min-width: 0; line-height: 1; }
+.rank-copy small, .hero-copy small {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 6px;
+  letter-spacing: .16em;
+}
+.rank-copy strong, .hero-copy strong {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--paper);
+  font-size: 8px;
+  letter-spacing: .02em;
+}
+.rank-stars {
+  display: block;
+  margin-top: 3px;
+  color: var(--yellow);
+  font-size: 6px;
+  letter-spacing: .04em;
+}
+.hero-icon, .hero-icon-fallback {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  object-fit: cover;
+  border: 1px solid rgba(236,231,220,.12);
+  filter: saturate(.9) contrast(1.05);
+}
+.hero-icon { object-position: center; }
+@media (max-width: 1050px) {
+  .rank-hero-block { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .rank-hero-block { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 460px) {
+  .rank-hero-block { grid-template-columns: 1fr 1fr; }
+  .rank-visual, .hero-visual { height: 58px; }
+}
