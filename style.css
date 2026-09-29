@@ -530,3 +530,57 @@ code { color: var(--paper); }
 @media (prefers-reduced-motion: reduce) {
   .player-card, .player-card-inner, .profile-button { transition: none; }
 }
+
+
+/* v5: sharper typography on flipped cards */
+.player-card,
+.player-card-inner,
+.player-card-face {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.player-card-back {
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: rotateY(180deg) translateZ(1px);
+}
+.player-card-back .back-topline,
+.player-card-back .back-kicker,
+.player-card-back .social-title,
+.player-card-back .flip-back-hint,
+.player-card-back .bio-block small,
+.player-card-back .back-facts small {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.player-card-back .back-heading h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.035em;
+}
+.player-card-back .back-heading p,
+.player-card-back .bio-block p,
+.player-card-back .back-facts strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.profile-button {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep the zoom subtle enough to avoid an over-scaled raster layer. */
+.player-card.is-open {
+  transform: translateY(-7px) scale(1.035);
+}
+@media (max-width: 1050px) {
+  .player-card.is-open { transform: translateY(-6px) scale(1.02); }
+}
+@media (max-width: 760px) {
+  .player-card.is-open { transform: translateY(-4px) scale(1.01); }
+}
+@media (max-width: 460px) {
+  .player-card.is-open { transform: translateY(-3px) scale(1.005); }
+}
