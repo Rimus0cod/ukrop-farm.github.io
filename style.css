@@ -760,3 +760,28 @@ code { color: var(--paper); }
   z-index: 2;
   pointer-events: none;
 }
+
+
+/* v6: new UKROP FARM identity */
+:root{--bg:#070908;--panel:#0d100e;--paper:#e8e9e5;--muted:#8d948d;--line:rgba(232,233,229,.13);--green:#8aa65a;--green-2:#536d39;--yellow:#a9b57b;--red:#788a55;--ink:#090b09}
+body{background:radial-gradient(circle at 74% 8%,rgba(99,126,69,.12),transparent 28%),linear-gradient(180deg,#090c0a 0%,#050706 100%)}
+.ambient-glow{position:absolute;top:110px;right:-140px;width:620px;height:620px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(111,143,75,.12),transparent 67%);filter:blur(18px)}
+.site-header{background:rgba(7,9,8,.86);box-shadow:0 10px 34px rgba(0,0,0,.18)}
+.brand{gap:11px}.brand-logo{width:46px;height:46px;display:block;object-fit:cover;border-radius:10px;border:1px solid rgba(138,166,90,.28)}
+.nav{letter-spacing:.11em}.nav a.active::after{background:linear-gradient(90deg,transparent,var(--green),transparent)}
+.hero{min-height:720px;gap:56px}h1{letter-spacing:-.055em}h1 span{color:var(--green);-webkit-text-stroke:0}
+.brand-line{margin:26px 0 9px;color:var(--green);font-size:10px;font-weight:700;letter-spacing:.24em}
+.button{border-radius:8px}.button-primary{color:#0a0d09;background:linear-gradient(135deg,#a1b977,#789550);border-color:#94ad68}
+.hero-emblem{min-height:520px;padding:28px}.hero-emblem::before{content:'';position:absolute;inset:8%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(119,150,80,.13),transparent 67%);filter:blur(18px)}
+.hero-emblem img{width:min(470px,100%);aspect-ratio:1;object-fit:cover;border-radius:24px;border:1px solid rgba(163,184,125,.18);box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 60px rgba(102,132,67,.09)}
+.emblem-frame{inset:4%;border-color:rgba(138,166,90,.20);border-radius:30px;transform:rotate(-1deg)}
+.emblem-caption{top:2%;right:7%;writing-mode:initial;font-family:'Archivo',system-ui,sans-serif;color:var(--muted);font-size:8px;letter-spacing:.18em}
+.emblem-caption span{color:var(--green)}
+.stamp{bottom:5%;left:3%;width:68px;border:1px solid rgba(138,166,90,.55);border-radius:12px;color:var(--green);font-family:'Archivo',system-ui,sans-serif;font-weight:900;transform:rotate(-4deg);background:rgba(8,11,9,.88)}
+.player-card:hover .player-card-front,.player-card:focus-visible .player-card-front{border-color:rgba(138,166,90,.42)}
+.player-role,.back-kicker,.rank-stars,.coach-role{color:#aab884}
+.team-seal{inset:13%;border:0;transform:none;background:transparent}.team-seal::before,.team-seal::after{display:none}
+.team-seal img{width:100%;height:100%;object-fit:cover;border-radius:24px;opacity:.78;filter:saturate(.72) contrast(1.08);box-shadow:0 28px 80px rgba(0,0,0,.45)}
+.vertical-word{writing-mode:initial;top:auto;bottom:8%;right:12%}.footer-jp{font-family:'Archivo',system-ui,sans-serif;letter-spacing:.14em}
+.coach-card:hover{border-color:rgba(138,166,90,.42)}.coach-stamp{color:var(--green);border-color:rgba(138,166,90,.55)}
+@media(max-width:760px){.brand-logo{width:40px;height:40px;border-radius:9px}.hero{gap:24px}.hero-emblem{padding:18px}.hero-emblem img{width:min(420px,92%);border-radius:20px}}
