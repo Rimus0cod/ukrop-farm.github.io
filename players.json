@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-28T21:34:45.756784+00:00",
+  "updatedAt": "2026-09-29T00:55:13.760914+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
       "nick": "tilda ~",
-      "name": "Carry",
+      "name": "Павлик",
       "role": "POSITION 1",
       "roleRu": "Carry",
       "steam": "https://steamcommunity.com/profiles/76561199148161138/",
@@ -19,7 +19,7 @@
     },
     {
       "nick": "Nofacex",
-      "name": "Mid",
+      "name": "Мишаня",
       "role": "POSITION 2",
       "roleRu": "Mid",
       "steam": "https://steamcommunity.com/profiles/76561199096570960",
@@ -34,7 +34,7 @@
     },
     {
       "nick": "llme",
-      "name": "Offlane",
+      "name": "МЫкита",
       "role": "POSITION 3",
       "roleRu": "Offlane",
       "steam": "https://steamcommunity.com/id/platinarnbklub",
@@ -49,7 +49,7 @@
     },
     {
       "nick": "Yarking",
-      "name": "Support",
+      "name": "Ярик",
       "role": "POSITION 4",
       "roleRu": "Support",
       "steam": "https://steamcommunity.com/profiles/76561199084114532",
@@ -64,7 +64,7 @@
     },
     {
       "nick": "Ванёк",
-      "name": "Hard Support",
+      "name": "Ванёк",
       "role": "POSITION 5",
       "roleRu": "Hard Support",
       "steam": "https://steamcommunity.com/profiles/76561199129713322",
