@@ -584,3 +584,71 @@ code { color: var(--paper); }
 @media (max-width: 460px) {
   .player-card.is-open { transform: translateY(-3px) scale(1.005); }
 }
+
+
+/* v6: crisp resting state for flipped cards */
+.player-card {
+  perspective: 900px;
+  transform: none !important;
+  box-shadow: none;
+}
+.player-card.is-open {
+  z-index: 40;
+  border-color: rgba(141,245,72,.72);
+  box-shadow: 0 24px 55px rgba(0,0,0,.48), 0 0 0 1px rgba(141,245,72,.08);
+}
+.player-card-inner {
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+.player-card-face {
+  will-change: auto;
+}
+.player-card-front {
+  transform: rotateY(0deg);
+}
+.player-card-back {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+/* During the flip the card rotates normally; after it finishes the back is flattened. */
+.player-card.is-static-back .player-card-inner {
+  transform: none !important;
+}
+.player-card.is-static-back .player-card-front {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: none;
+}
+.player-card.is-static-back .player-card-back {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: none;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+/* Closing: temporarily reveal the front and run the reverse rotation. */
+.player-card.is-closing .player-card-front {
+  opacity: 1;
+  visibility: visible;
+}
+.player-card.is-closing .player-card-back {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Remove the previous zoom/rasterization trigger entirely. */
+.player-card.is-open,
+.player-card.is-open:hover {
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  .player-card.is-open {
+    transform: none !important;
+  }
+}
