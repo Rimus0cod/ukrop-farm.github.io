@@ -264,65 +264,33 @@
 
     loadRoster();
 
-    function resetCard(card) {
-      card.classList.remove('is-open', 'is-static-back', 'is-flipping', 'is-closing');
-      card.setAttribute('aria-pressed', 'false');
+    function closeAllCards(except) {
+      document.querySelectorAll('.player-card.is-flipped').forEach(card => {
+        if (card !== except) {
+          card.classList.remove('is-flipped');
+          card.setAttribute('aria-pressed', 'false');
+        }
+      });
     }
 
-    function openCard(card) {
-      document.querySelectorAll('.player-card.is-open').forEach(other => {
-        if (other !== card) resetCard(other);
-      });
-      card.classList.remove('is-static-back', 'is-closing');
-      card.classList.add('is-open', 'is-flipping');
-      card.setAttribute('aria-pressed', 'true');
-
-      const inner = card.querySelector('.player-card-inner');
-      const finish = event => {
-        if (event.propertyName !== 'transform') return;
-        inner.removeEventListener('transitionend', finish);
-        card.classList.remove('is-flipping');
-        card.classList.add('is-static-back');
-        inner.style.transform = 'none';
-      };
-      inner.addEventListener('transitionend', finish);
-    }
-
-    function closeCard(card) {
-      const inner = card.querySelector('.player-card-inner');
-      card.classList.remove('is-static-back');
-      card.classList.add('is-closing');
-      inner.style.transform = 'rotateY(180deg)';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          inner.addEventListener('transitionend', function finish(event) {
-            if (event.propertyName !== 'transform') return;
-            inner.removeEventListener('transitionend', finish);
-            inner.style.transform = '';
-            resetCard(card);
-          });
-          inner.style.transform = 'rotateY(0deg)';
-        });
-      });
+    function toggleCard(card) {
+      const flipped = card.classList.contains('is-flipped');
+      closeAllCards(card);
+      card.classList.toggle('is-flipped', !flipped);
+      card.setAttribute('aria-pressed', String(!flipped));
     }
 
     grid.addEventListener('click', event => {
       if (event.target.closest('a, button')) return;
       const card = event.target.closest('.player-card');
-      if (!card) return;
-
-      if (card.classList.contains('is-static-back')) {
-        closeCard(card);
-      } else if (!card.classList.contains('is-flipping')) {
-        openCard(card);
-      }
+      if (card) toggleCard(card);
     });
 
     grid.addEventListener('keydown', event => {
       const card = event.target.closest('.player-card');
       if (!card || (event.key !== 'Enter' && event.key !== ' ')) return;
       event.preventDefault();
-      card.click();
+      toggleCard(card);
     });
 
     const links = [...document.querySelectorAll('.nav-link')];
