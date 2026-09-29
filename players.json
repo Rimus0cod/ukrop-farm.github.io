@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T00:55:13.760914+00:00",
+  "updatedAt": "2026-09-29T05:49:53.357631+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -12,7 +12,7 @@
       "active": true,
       "rank": "Divine 2",
       "favoriteHero": "Invoker",
-      "avatar": "https://avatars.akamai.steamstatic.com/a0da001d9ff0442f69b056cccdae4fad6b9109c0_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/a0da001d9ff0442f69b056cccdae4fad6b9109c0_full.jpg",
       "steamName": "Steam Community :: tilda ~",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
@@ -27,7 +27,7 @@
       "active": true,
       "rank": "Divine 2",
       "favoriteHero": "Keeper of the Light",
-      "avatar": "https://avatars.akamai.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
       "steamName": "Steam Community :: NoFaceX",
       "dotabuff": "https://www.dotabuff.com/players/1136305232",
       "dataSource": "OpenDota fallback"
@@ -40,7 +40,7 @@
       "steam": "https://steamcommunity.com/id/platinarnbklub",
       "steamId": "76561198846783217",
       "active": true,
-      "avatar": "https://avatars.akamai.steamstatic.com/c0543d2453013cadb32952fa67bfbe2a2d9d0e0d_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/c0543d2453013cadb32952fa67bfbe2a2d9d0e0d_full.jpg",
       "steamName": "Steam Community :: lllme",
       "dotabuff": "https://www.dotabuff.com/players/886517489",
       "rank": "Crusader 2",
@@ -57,7 +57,7 @@
       "active": true,
       "rank": "Divine 4",
       "favoriteHero": "Bounty Hunter",
-      "avatar": "https://avatars.akamai.steamstatic.com/a9a77c7808ecc03cfef0cbe8ae7d5023395868ac_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/a9a77c7808ecc03cfef0cbe8ae7d5023395868ac_full.jpg",
       "steamName": "Steam Community :: Yarking",
       "dotabuff": "https://www.dotabuff.com/players/1123848804",
       "dataSource": "OpenDota fallback"
@@ -72,7 +72,7 @@
       "active": true,
       "rank": "Archon 2",
       "favoriteHero": "Jakiro",
-      "avatar": "https://avatars.akamai.steamstatic.com/68253582997c56844bb77e2dc5e5362771bdc312_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/68253582997c56844bb77e2dc5e5362771bdc312_full.jpg",
       "steamName": "Steam Community :: 6729 дня без секса",
       "dotabuff": "https://www.dotabuff.com/players/1169447594",
       "dataSource": "OpenDota fallback"
