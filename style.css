@@ -552,3 +552,173 @@ code { color: var(--paper); }
 @media (prefers-reduced-motion: reduce) {
   .player-card-inner { transition: none; }
 }
+
+/* v5: coaching staff */
+.coaches {
+  padding: 20px 0 120px;
+}
+
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.coach-card {
+  min-height: 330px;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(141,245,72,.08), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.04), rgba(0,0,0,.18));
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.coach-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(141,245,72,.48);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+
+.coach-visual {
+  min-height: 330px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(242,207,46,.10), transparent 28%),
+    #0a100c;
+}
+
+.coach-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: .35;
+}
+
+.coach-monogram {
+  position: relative;
+  z-index: 1;
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(141,245,72,.45);
+  outline: 1px solid rgba(242,207,46,.20);
+  outline-offset: 8px;
+  color: var(--green);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 76px;
+  line-height: 1;
+  transform: rotate(-4deg);
+  background: rgba(7,11,8,.54);
+}
+
+.coach-stamp {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: var(--red);
+  border: 1px solid rgba(219,56,45,.65);
+  padding: 7px 9px;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .16em;
+  transform: rotate(-5deg);
+  background: rgba(7,11,8,.72);
+}
+
+.coach-stamp small {
+  display: block;
+  margin-top: 5px;
+  font-size: 6px;
+  letter-spacing: .12em;
+}
+
+.coach-role {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  color: var(--yellow);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.coach-info {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.coach-topline {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.coach-info h3 {
+  margin: 52px 0 8px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: .9;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+
+.coach-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.coach-info .profile-button {
+  margin-top: auto;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .coaches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-card {
+    grid-template-columns: .85fr 1.15fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .coach-card {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-visual {
+    min-height: 240px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .coach-info {
+    min-height: 230px;
+    padding: 20px;
+  }
+
+  .coach-info h3 {
+    margin-top: 34px;
+  }
+}
