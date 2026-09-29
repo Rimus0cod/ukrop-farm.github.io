@@ -313,35 +313,34 @@ code { color: var(--paper); }
 }
 
 
-/* v4: interactive player profile cards */
+/* v4: clean interactive player cards */
 .player-card {
   min-height: 452px;
+  position: relative;
   cursor: pointer;
-  perspective: 1200px;
+  perspective: 1100px;
   overflow: visible;
   border-radius: 18px;
-  transition: transform .34s cubic-bezier(.2,.8,.2,1), box-shadow .34s ease, border-color .25s ease;
+  background: transparent;
+  border: 0;
 }
 .player-card-inner {
   position: relative;
   width: 100%;
   min-height: 452px;
-  height: 100%;
   transform-style: preserve-3d;
-  transition: transform .72s cubic-bezier(.22,.8,.2,1);
+  transition: transform .7s cubic-bezier(.2,.75,.2,1);
 }
-.player-card.is-open {
-  z-index: 40;
-  transform: scale(1.08) translateY(-7px);
-  border-color: rgba(141,245,72,.72);
-  box-shadow: 0 28px 70px rgba(0,0,0,.58), 0 0 0 1px rgba(141,245,72,.10);
-}
-.player-card.is-open .player-card-inner {
+.player-card.is-flipped .player-card-inner {
   transform: rotateY(180deg);
 }
 .player-card:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 5px;
+  border-radius: 18px;
+}
+.player-card.is-flipped {
+  z-index: 20;
 }
 .player-card-face {
   position: absolute;
@@ -354,16 +353,23 @@ code { color: var(--paper); }
 }
 .player-card-front {
   background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.16));
+  border: 1px solid var(--line);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.player-card:hover .player-card-front,
+.player-card:focus-visible .player-card-front {
+  border-color: rgba(141,245,72,.48);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
 }
 .player-card-back {
   transform: rotateY(180deg);
-  padding: 20px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(circle at 88% 8%, rgba(141,245,72,.11), transparent 34%),
+    radial-gradient(circle at 88% 8%, rgba(141,245,72,.10), transparent 34%),
     linear-gradient(145deg, #111a13 0%, #090d0a 100%);
-  border: 1px solid rgba(141,245,72,.22);
+  border: 1px solid rgba(141,245,72,.25);
 }
 .player-card-back::before {
   content: 'UF';
@@ -384,7 +390,7 @@ code { color: var(--paper); }
   font-weight: 700;
   letter-spacing: .18em;
 }
-.back-heading { margin-top: 30px; }
+.back-heading { margin-top: 28px; }
 .back-kicker {
   display: block;
   color: var(--yellow);
@@ -395,23 +401,33 @@ code { color: var(--paper); }
 }
 .back-heading h3 {
   margin: 0;
-  font-size: clamp(25px, 2vw, 32px);
+  color: var(--paper);
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 29px;
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: -.05em;
+  letter-spacing: -.04em;
   text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 .back-heading p {
-  margin: 7px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
+  font-family: 'Archivo', system-ui, sans-serif;
   font-size: 11px;
-  letter-spacing: .08em;
+  font-weight: 500;
+  letter-spacing: .03em;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 .bio-block {
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
 }
-.bio-block small, .social-title {
+.bio-block small,
+.social-title {
   display: block;
   color: var(--muted);
   font-size: 8px;
@@ -422,17 +438,20 @@ code { color: var(--paper); }
   margin: 9px 0 0;
   color: var(--paper);
   font-size: 11px;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: .005em;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 .back-facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  margin-top: 17px;
+  margin-top: 18px;
 }
 .back-facts div {
   min-width: 0;
-  padding: 9px 10px;
+  padding: 10px;
   border: 1px solid rgba(236,231,220,.10);
   background: rgba(255,255,255,.025);
 }
@@ -446,12 +465,14 @@ code { color: var(--paper); }
 .back-facts strong {
   display: block;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--paper);
   font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .01em;
 }
-.social-title { margin-top: 17px; }
+.social-title { margin-top: 18px; }
 .profile-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -459,17 +480,20 @@ code { color: var(--paper); }
   margin-top: 8px;
 }
 .profile-button {
-  min-height: 34px;
-  padding: 0 10px;
+  min-height: 36px;
+  padding: 0 11px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid var(--line);
   color: var(--paper);
   background: rgba(255,255,255,.02);
-  font-size: 8px;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: .12em;
+  letter-spacing: .11em;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
   transition: .2s ease;
 }
 .profile-button:hover {
@@ -478,7 +502,8 @@ code { color: var(--paper); }
   background: rgba(141,245,72,.045);
 }
 .profile-button b { font-size: 13px; font-weight: 400; }
-.flip-hint, .flip-back-hint {
+.flip-hint,
+.flip-back-hint {
   color: var(--muted);
   font-size: 7px;
   font-weight: 700;
@@ -501,7 +526,6 @@ code { color: var(--paper); }
   text-align: center;
   border-top: 1px solid rgba(236,231,220,.08);
 }
-
 .player-info h3 { font-size: 21px; }
 .player-info p { font-size: 10px; margin-bottom: 16px; }
 .player-role { font-size: 9px; }
@@ -510,145 +534,21 @@ code { color: var(--paper); }
 .rank-stars { font-size: 7px; }
 .roster-grid { gap: 16px; }
 
-@media (max-width: 1050px) {
-  .player-card.is-open { transform: scale(1.045) translateY(-6px); }
-}
 @media (max-width: 760px) {
-  .player-card, .player-card-inner, .player-card-face { min-height: 448px; }
-  .player-card.is-open { transform: scale(1.025) translateY(-4px); }
-  .player-card-back { padding: 18px; }
+  .player-card,
+  .player-card-inner,
+  .player-card-face { min-height: 448px; }
+  .player-card-back { padding: 19px; }
   .back-heading { margin-top: 24px; }
   .bio-block p { font-size: 10.5px; }
 }
 @media (max-width: 460px) {
-  .player-card, .player-card-inner, .player-card-face { min-height: 430px; }
-  .player-card.is-open { transform: scale(1.015) translateY(-3px); }
-  .player-card-back { padding: 17px; }
-  .back-facts { gap: 5px; }
-  .profile-buttons { gap: 6px; }
+  .player-card,
+  .player-card-inner,
+  .player-card-face { min-height: 430px; }
+  .player-card-back { padding: 18px; }
+  .player-info h3 { font-size: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .player-card, .player-card-inner, .profile-button { transition: none; }
-}
-
-
-/* v5: sharper typography on flipped cards */
-.player-card,
-.player-card-inner,
-.player-card-face {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.player-card-back {
-  font-family: Arial, Helvetica, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: rotateY(180deg) translateZ(1px);
-}
-.player-card-back .back-topline,
-.player-card-back .back-kicker,
-.player-card-back .social-title,
-.player-card-back .flip-back-hint,
-.player-card-back .bio-block small,
-.player-card-back .back-facts small {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.player-card-back .back-heading h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  letter-spacing: -.035em;
-}
-.player-card-back .back-heading p,
-.player-card-back .bio-block p,
-.player-card-back .back-facts strong {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-.profile-button {
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Keep the zoom subtle enough to avoid an over-scaled raster layer. */
-.player-card.is-open {
-  transform: translateY(-7px) scale(1.035);
-}
-@media (max-width: 1050px) {
-  .player-card.is-open { transform: translateY(-6px) scale(1.02); }
-}
-@media (max-width: 760px) {
-  .player-card.is-open { transform: translateY(-4px) scale(1.01); }
-}
-@media (max-width: 460px) {
-  .player-card.is-open { transform: translateY(-3px) scale(1.005); }
-}
-
-
-/* v6: crisp resting state for flipped cards */
-.player-card {
-  perspective: 900px;
-  transform: none !important;
-  box-shadow: none;
-}
-.player-card.is-open {
-  z-index: 40;
-  border-color: rgba(141,245,72,.72);
-  box-shadow: 0 24px 55px rgba(0,0,0,.48), 0 0 0 1px rgba(141,245,72,.08);
-}
-.player-card-inner {
-  transform-style: preserve-3d;
-  backface-visibility: visible;
-  -webkit-backface-visibility: visible;
-}
-.player-card-face {
-  will-change: auto;
-}
-.player-card-front {
-  transform: rotateY(0deg);
-}
-.player-card-back {
-  transform: rotateY(180deg) translateZ(1px);
-}
-
-/* During the flip the card rotates normally; after it finishes the back is flattened. */
-.player-card.is-static-back .player-card-inner {
-  transform: none !important;
-}
-.player-card.is-static-back .player-card-front {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transform: none;
-}
-.player-card.is-static-back .player-card-back {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-  transform: none;
-  backface-visibility: visible;
-  -webkit-backface-visibility: visible;
-}
-
-/* Closing: temporarily reveal the front and run the reverse rotation. */
-.player-card.is-closing .player-card-front {
-  opacity: 1;
-  visibility: visible;
-}
-.player-card.is-closing .player-card-back {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Remove the previous zoom/rasterization trigger entirely. */
-.player-card.is-open,
-.player-card.is-open:hover {
-  transform: none !important;
-}
-
-@media (max-width: 760px) {
-  .player-card.is-open {
-    transform: none !important;
-  }
+  .player-card-inner { transition: none; }
 }
