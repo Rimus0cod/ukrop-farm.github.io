@@ -5,7 +5,7 @@
 const roster = [
   {
     nick: 'tilda ~',
-    name: 'Carry',
+    name: 'Павлик',
     role: 'POSITION 1',
     roleRu: 'Carry',
     steam: 'https://steamcommunity.com/profiles/76561199148161138/',
@@ -14,7 +14,7 @@ const roster = [
   },
   {
     nick: 'Nofacex',
-    name: 'Mid',
+    name: 'Мишаня',
     role: 'POSITION 2',
     roleRu: 'Mid',
     steam: 'https://steamcommunity.com/profiles/76561199096570960',
@@ -23,7 +23,7 @@ const roster = [
   },
   {
     nick: 'llme',
-    name: 'Offlane',
+    name: 'МЫкита',
     role: 'POSITION 3',
     roleRu: 'Offlane',
     steam: 'https://steamcommunity.com/id/platinarnbklub',
@@ -31,7 +31,7 @@ const roster = [
   },
   {
     nick: 'Yarking',
-    name: 'Support',
+    name: 'Ярик',
     role: 'POSITION 4',
     roleRu: 'Support',
     steam: 'https://steamcommunity.com/profiles/76561199084114532',
@@ -40,7 +40,7 @@ const roster = [
   },
   {
     nick: 'Ванёк',
-    name: 'Hard Support',
+    name: 'Ванёк',
     role: 'POSITION 5',
     roleRu: 'Hard Support',
     steam: 'https://steamcommunity.com/profiles/76561199129713322',
