@@ -133,6 +133,14 @@
       Immortal: 8
     };
 
+    const PLAYER_BIOS = {
+      'tilda ~': 'Керри состава. Фокус на фарме, таймингах и том самом моменте, когда один хороший файт меняет всю карту.',
+      'Nofacex': 'Мидер состава. Берёт темп на линии, создаёт пространство и старается первым задавать ритм матча.',
+      'llme': 'Оффлейнер состава. Пережить линию, создать пространство и вовремя открыть драку — главные задачи позиции.',
+      'Yarking': 'Четвёртая позиция. Ищет возможности по карте, помогает линиям и постоянно охотится за хорошим моментом.',
+      'Ванёк': 'Хард-саппорт. Контроль карты, помощь команде и грязная работа, которую обычно никто не замечает.'
+    };
+
     function rankMeta(rank) {
       const value = String(rank || '').trim();
       const tierName = Object.keys(RANK_TIERS).find(name => value.toLowerCase().startsWith(name.toLowerCase()));
@@ -155,55 +163,92 @@
 
     function cardTemplate(player, index) {
       const ready = player.steam && !player.steam.includes('CHANGE_ME');
-      const steam = ready
-        ? '<a class="steam-link" href="' + escapeHtml(player.steam) + '" target="_blank" rel="noopener noreferrer">STEAM ↗</a>'
-        : '<span class="steam-link disabled">STEAM / НЕТ ССЫЛКИ</span>';
       const photo = player.avatar || player.photo || 'assets/player-placeholder.svg';
       const rank = rankMeta(player.rank);
       const hero = player.favoriteHero || '';
+      const bio = PLAYER_BIOS[player.nick] || 'Игрок основного состава Ukrop Farm.';
       const heroImage = hero
         ? 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/icons/' + heroSlug(hero) + '.png'
         : '';
       const medal = rank.tier
         ? '<img class="rank-medal" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_' + rank.tier + '.png" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement(\'span\'), { className: \'rank-medal-fallback\', textContent: \'?\' }))">'
         : '<span class="rank-medal-fallback">?</span>';
+
+      const steamButton = ready
+        ? '<a class="profile-button" href="' + escapeHtml(player.steam) + '" target="_blank" rel="noopener noreferrer"><span>STEAM</span><b>↗</b></a>'
+        : '';
+      const dotabuffButton = player.dotabuff
+        ? '<a class="profile-button" href="' + escapeHtml(player.dotabuff) + '" target="_blank" rel="noopener noreferrer"><span>DOTABUFF</span><b>↗</b></a>'
+        : '';
+
       return `
-        <article class="player-card">
-          <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'ЗАПАС' : 'АКТИВЕН'}</span></div>
-          <div class="player-photo-wrap">
-            <div class="player-grid"></div>
-            <img class="player-photo" src="${escapeHtml(photo)}" alt="Аватар ${escapeHtml(player.nick)}" loading="lazy">
-            <div class="player-role">${escapeHtml(player.role || roleNames[index] || 'ИГРОК')}</div>
-          </div>
-          <div class="player-info">
-            <h3>${escapeHtml(player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0'))}</h3>
-            <p>${escapeHtml(player.name || 'Игрок')} · ${escapeHtml(player.roleRu || '')}</p>
-            <div class="player-meta-row">
-              <div class="rank-hero-block">
-                <div class="rank-visual" title="${escapeHtml(player.rank || 'Нет данных')}">
-                  ${medal}
-                  <div class="rank-copy">
-                    <small>RANK</small>
-                    <strong>${escapeHtml(rank.name)}</strong>
-                    ${rank.stars ? '<span class="rank-stars">' + escapeHtml(rank.stars) + ' ★</span>' : ''}
+        <article class="player-card" tabindex="0" role="button" aria-label="Открыть профиль ${escapeHtml(player.nick || '')}" aria-pressed="false">
+          <div class="player-card-inner">
+            <div class="player-card-face player-card-front">
+              <div class="player-topline"><span>0${index + 1}</span><span>${player.active === false ? 'ЗАПАС' : 'АКТИВЕН'}</span></div>
+              <div class="player-photo-wrap">
+                <div class="player-grid"></div>
+                <img class="player-photo" src="${escapeHtml(photo)}" alt="Аватар ${escapeHtml(player.nick)}" loading="lazy">
+                <div class="player-role">${escapeHtml(player.role || roleNames[index] || 'ИГРОК')}</div>
+              </div>
+              <div class="player-info">
+                <h3>${escapeHtml(player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0'))}</h3>
+                <p>${escapeHtml(player.name || 'Игрок')} · ${escapeHtml(player.roleRu || '')}</p>
+                <div class="player-meta-row">
+                  <div class="rank-hero-block">
+                    <div class="rank-visual" title="${escapeHtml(player.rank || 'Нет данных')}">
+                      ${medal}
+                      <div class="rank-copy">
+                        <small>RANK</small>
+                        <strong>${escapeHtml(rank.name)}</strong>
+                        ${rank.stars ? '<span class="rank-stars">' + escapeHtml(rank.stars) + ' ★</span>' : ''}
+                      </div>
+                    </div>
+                    <div class="hero-visual" title="${escapeHtml(hero || 'Нет данных')}">
+                      ${heroImage
+                        ? '<img class="hero-icon" src="' + escapeHtml(heroImage) + '" alt="' + escapeHtml(hero) + '" loading="lazy">'
+                        : '<span class="hero-icon-fallback">?</span>'}
+                      <div class="hero-copy">
+                        <small>HERO</small>
+                        <strong>${escapeHtml(hero || 'Нет данных')}</strong>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="hero-visual" title="${escapeHtml(hero || 'Нет данных')}">
-                  ${heroImage
-                    ? '<img class="hero-icon" src="' + escapeHtml(heroImage) + '" alt="' + escapeHtml(hero) + '" loading="lazy">'
-                    : '<span class="hero-icon-fallback">?</span>'}
-                  <div class="hero-copy">
-                    <small>HERO</small>
-                    <strong>${escapeHtml(hero || 'Нет данных')}</strong>
-                  </div>
-                </div>
+                <div class="flip-hint"><span>↻</span> НАЖМИ, ЧТОБЫ ОТКРЫТЬ ПРОФИЛЬ</div>
               </div>
             </div>
-            ${steam}
+
+            <div class="player-card-face player-card-back">
+              <div class="back-topline">
+                <span>PLAYER PROFILE</span>
+                <span>0${index + 1}</span>
+              </div>
+              <div class="back-heading">
+                <span class="back-kicker">UKROP FARM / ${escapeHtml(player.role || '')}</span>
+                <h3>${escapeHtml(player.nick || 'PLAYER ' + String(index + 1).padStart(2, '0'))}</h3>
+                <p>${escapeHtml(player.name || 'Игрок')} · ${escapeHtml(player.roleRu || '')}</p>
+              </div>
+              <div class="bio-block">
+                <small>КРАТКО О ИГРОКЕ</small>
+                <p>${escapeHtml(bio)}</p>
+              </div>
+              <div class="back-facts">
+                <div><small>RANK</small><strong>${escapeHtml(player.rank || '—')}</strong></div>
+                <div><small>FAV HERO</small><strong>${escapeHtml(hero || '—')}</strong></div>
+                <div><small>POSITION</small><strong>${escapeHtml(player.roleRu || player.role || '—')}</strong></div>
+                <div><small>STATUS</small><strong>${player.active === false ? 'ЗАПАС' : 'АКТИВЕН'}</strong></div>
+              </div>
+              <div class="social-title">ССЫЛКИ</div>
+              <div class="profile-buttons">
+                ${steamButton}
+                ${dotabuffButton}
+              </div>
+              <div class="flip-back-hint">↻ НАЖМИТЕ ЕЩЁ РАЗ, ЧТОБЫ ВЕРНУТЬСЯ</div>
+            </div>
           </div>
         </article>`;
     }
-
     async function loadRoster() {
       try {
         const response = await fetch('players.json?v=' + Date.now(), { cache: 'no-store' });
@@ -218,6 +263,28 @@
     }
 
     loadRoster();
+
+    grid.addEventListener('click', event => {
+      if (event.target.closest('a, button')) return;
+      const card = event.target.closest('.player-card');
+      if (!card) return;
+      const wasOpen = card.classList.contains('is-open');
+      document.querySelectorAll('.player-card.is-open').forEach(openCard => {
+        openCard.classList.remove('is-open');
+        openCard.setAttribute('aria-pressed', 'false');
+      });
+      if (!wasOpen) {
+        card.classList.add('is-open');
+        card.setAttribute('aria-pressed', 'true');
+      }
+    });
+
+    grid.addEventListener('keydown', event => {
+      const card = event.target.closest('.player-card');
+      if (!card || (event.key !== 'Enter' && event.key !== ' ')) return;
+      event.preventDefault();
+      card.click();
+    });
 
     const links = [...document.querySelectorAll('.nav-link')];
     const sections = [...document.querySelectorAll('[data-observe]')];
