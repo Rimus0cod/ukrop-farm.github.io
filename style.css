@@ -722,3 +722,41 @@ code { color: var(--paper); }
     margin-top: 34px;
   }
 }
+
+.coach-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.82) contrast(1.05);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.coach-card:hover .coach-photo {
+  transform: scale(1.035);
+  filter: saturate(.96) contrast(1.04);
+}
+
+.coach-photo-egorka {
+  object-position: center 38%;
+}
+
+.coach-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(7,11,8,.04) 42%, rgba(7,11,8,.7) 100%);
+}
+
+.coach-stamp,
+.coach-role {
+  z-index: 3;
+}
+
+.coach-grid {
+  z-index: 2;
+  pointer-events: none;
+}
