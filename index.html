@@ -292,12 +292,13 @@
       const inner = card.querySelector('.player-card-inner');
       card.classList.remove('is-static-back');
       card.classList.add('is-closing');
-      inner.style.transform = '';
+      inner.style.transform = 'rotateY(180deg)';
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           inner.addEventListener('transitionend', function finish(event) {
             if (event.propertyName !== 'transform') return;
             inner.removeEventListener('transitionend', finish);
+            inner.style.transform = '';
             resetCard(card);
           });
           inner.style.transform = 'rotateY(0deg)';
