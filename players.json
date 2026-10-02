@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T12:46:12.446566+00:00",
+  "updatedAt": "2026-10-02T22:19:06.102570+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -13,7 +13,7 @@
       "rank": "Divine 2",
       "favoriteHero": "Invoker",
       "avatar": "https://avatars.akamai.steamstatic.com/a0da001d9ff0442f69b056cccdae4fad6b9109c0_full.jpg",
-      "steamName": "Steam Community :: UF`.tilda ~",
+      "steamName": "Steam Community :: UF`. tilda ~",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
     },
