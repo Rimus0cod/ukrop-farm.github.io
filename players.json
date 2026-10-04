@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:01:56.952607+00:00",
+  "updatedAt": "2026-10-04T12:28:49.950354+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -25,7 +25,7 @@
       "steam": "https://steamcommunity.com/profiles/76561199096570960",
       "steamId": "76561199096570960",
       "active": true,
-      "rank": "Divine 2",
+      "rank": "Divine 1",
       "favoriteHero": "Keeper of the Light",
       "avatar": "https://avatars.akamai.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
       "steamName": "Steam Community :: NoFaceX",
