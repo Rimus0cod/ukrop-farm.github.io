@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T17:18:22.729230+00:00",
+  "updatedAt": "2026-10-14T21:46:34.442931+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -10,9 +10,9 @@
       "steam": "https://steamcommunity.com/profiles/76561199148161138/",
       "steamId": "76561199148161138",
       "active": true,
-      "rank": "Divine 2",
+      "rank": "Divine 3",
       "favoriteHero": "Invoker",
-      "avatar": "https://avatars.akamai.steamstatic.com/bdee1112b5a4d3f8da7a84ca885053fc30caa1e4_full.jpg",
+      "avatar": "https://avatars.akamai.steamstatic.com/53095bcd8417e5c9b94da2e3c92e48f54f43c08a_full.jpg",
       "steamName": "Steam Community :: UF`. tilda ~",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
