@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T04:49:15.877183+00:00",
+  "updatedAt": "2026-10-15T11:38:38.750313+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -38,14 +38,8 @@
       "role": "POSITION 3",
       "roleRu": "Offlane",
       "steam": "https://steamcommunity.com/id/platinarnbklub",
-      "steamId": "76561198846783217",
-      "active": true,
-      "avatar": "https://avatars.akamai.steamstatic.com/d9b4ba1ca81845443c59e5551e075a278fdc188b_full.jpg",
-      "steamName": "Steam Community :: lllme",
-      "rank": "Crusader 3",
-      "favoriteHero": "Timbersaw",
-      "dataSource": "OpenDota fallback",
-      "dotabuff": "https://www.dotabuff.com/players/886517489"
+      "steamId": "",
+      "active": true
     },
     {
       "nick": "Yarking",
