@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T04:58:40.062070+00:00",
+  "updatedAt": "2026-10-20T11:47:28.894471+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -72,7 +72,7 @@
       "active": true,
       "rank": "Archon 2",
       "favoriteHero": "Jakiro",
-      "avatar": "https://avatars.akamai.steamstatic.com/68253582997c56844bb77e2dc5e5362771bdc312_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/68253582997c56844bb77e2dc5e5362771bdc312_full.jpg",
       "steamName": "Steam Community :: 6760 дні без сексу",
       "dotabuff": "https://www.dotabuff.com/players/1169447594",
       "dataSource": "OpenDota fallback"
