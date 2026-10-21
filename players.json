@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T04:57:39.276991+00:00",
+  "updatedAt": "2026-10-21T11:58:59.830166+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -12,7 +12,7 @@
       "active": true,
       "rank": "Divine 3",
       "favoriteHero": "Invoker",
-      "avatar": "https://avatars.fastly.steamstatic.com/53095bcd8417e5c9b94da2e3c92e48f54f43c08a_full.jpg",
+      "avatar": "https://avatars.fastly.steamstatic.com/d33bb6f97b5a27c8c0333192441333a04a916151_full.jpg",
       "steamName": "Steam Community :: UF`. tilda ~",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
@@ -38,8 +38,14 @@
       "role": "POSITION 3",
       "roleRu": "Offlane",
       "steam": "https://steamcommunity.com/id/platinarnbklub",
-      "steamId": "",
-      "active": true
+      "steamId": "76561198846783217",
+      "active": true,
+      "avatar": "https://avatars.fastly.steamstatic.com/d9b4ba1ca81845443c59e5551e075a278fdc188b_full.jpg",
+      "steamName": "Steam Community :: lllme",
+      "rank": "Crusader 3",
+      "favoriteHero": "Timbersaw",
+      "dataSource": "OpenDota fallback",
+      "dotabuff": "https://www.dotabuff.com/players/886517489"
     },
     {
       "nick": "Yarking",
