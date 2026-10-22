@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T17:16:31.112564+00:00",
+  "updatedAt": "2026-10-22T21:42:23.327533+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -41,7 +41,7 @@
       "steamId": "76561198846783217",
       "active": true,
       "avatar": "https://avatars.fastly.steamstatic.com/d9b4ba1ca81845443c59e5551e075a278fdc188b_full.jpg",
-      "steamName": "Steam Community :: lllme",
+      "steamName": "Steam Community :: 17 и 2 мегабит",
       "rank": "Crusader 3",
       "favoriteHero": "Timbersaw",
       "dataSource": "OpenDota fallback",
