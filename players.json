@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T13:06:55.490761+00:00",
+  "updatedAt": "2026-10-28T22:40:00.968968+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -10,7 +10,7 @@
       "steam": "https://steamcommunity.com/profiles/76561199148161138/",
       "steamId": "76561199148161138",
       "active": true,
-      "rank": "Divine 3",
+      "rank": "Divine 4",
       "favoriteHero": "Invoker",
       "avatar": "https://avatars.akamai.steamstatic.com/59dc5c3e7d6604452b17b711ae48765725202a47_full.jpg",
       "steamName": "Steam Community :: エッジランナー",
