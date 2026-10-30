@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T13:05:21.665228+00:00",
+  "updatedAt": "2026-10-30T22:26:41.476372+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -40,8 +40,8 @@
       "steam": "https://steamcommunity.com/id/platinarnbklub",
       "steamId": "76561198846783217",
       "active": true,
-      "avatar": "https://avatars.fastly.steamstatic.com/d9b4ba1ca81845443c59e5551e075a278fdc188b_full.jpg",
-      "steamName": "Steam Community :: 17 и 2 мегабит",
+      "avatar": "https://avatars.fastly.steamstatic.com/daa31617745b7fb10112a51c8980f3c6a420bb3a_full.jpg",
+      "steamName": "Steam Community :: ек туй дрын опа",
       "rank": "Crusader 4",
       "favoriteHero": "Timbersaw",
       "dataSource": "OpenDota fallback",
