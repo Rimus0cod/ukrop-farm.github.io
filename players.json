@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T17:57:10.514783+00:00",
+  "updatedAt": "2026-11-01T22:08:00.986306+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -12,8 +12,8 @@
       "active": true,
       "rank": "Divine 4",
       "favoriteHero": "Invoker",
-      "avatar": "https://avatars.fastly.steamstatic.com/59dc5c3e7d6604452b17b711ae48765725202a47_full.jpg",
-      "steamName": "Steam Community :: x",
+      "avatar": "https://avatars.akamai.steamstatic.com/59dc5c3e7d6604452b17b711ae48765725202a47_full.jpg",
+      "steamName": "Steam Community :: larltyuk",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
     },
@@ -27,7 +27,7 @@
       "active": true,
       "rank": "Divine 3",
       "favoriteHero": "Keeper of the Light",
-      "avatar": "https://avatars.fastly.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
+      "avatar": "https://avatars.akamai.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
       "steamName": "Steam Community :: NoFaceX",
       "dotabuff": "https://www.dotabuff.com/players/1136305232",
       "dataSource": "OpenDota fallback"
@@ -38,8 +38,14 @@
       "role": "POSITION 3",
       "roleRu": "Offlane",
       "steam": "https://steamcommunity.com/id/platinarnbklub",
-      "steamId": "",
-      "active": true
+      "steamId": "76561198846783217",
+      "active": true,
+      "avatar": "https://avatars.akamai.steamstatic.com/daa31617745b7fb10112a51c8980f3c6a420bb3a_full.jpg",
+      "steamName": "Steam Community :: ек дуй трын опа",
+      "rank": "Crusader 4",
+      "favoriteHero": "Timbersaw",
+      "dataSource": "OpenDota fallback",
+      "dotabuff": "https://www.dotabuff.com/players/886517489"
     },
     {
       "nick": "Yarking",
