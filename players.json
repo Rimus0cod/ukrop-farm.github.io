@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T18:13:21.796323+00:00",
+  "updatedAt": "2026-11-14T22:32:41.767808+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -40,8 +40,8 @@
       "steam": "https://steamcommunity.com/id/platinarnbklub",
       "steamId": "76561198846783217",
       "active": true,
-      "avatar": "https://avatars.fastly.steamstatic.com/daa31617745b7fb10112a51c8980f3c6a420bb3a_full.jpg",
-      "steamName": "Steam Community :: ВИП ЦЫГАН(В ПРАЙМЕ, МАСТЕРМАЙНД)",
+      "avatar": "https://avatars.fastly.steamstatic.com/165b790b7ade06a31abdcf5e4cf1cd93bf3319ed_full.jpg",
+      "steamName": "Steam Community :: депутат(собачий)",
       "rank": "Crusader 5",
       "favoriteHero": "Timbersaw",
       "dataSource": "OpenDota fallback",
