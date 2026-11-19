@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T20:38:59.951860+00:00",
+  "updatedAt": "2026-11-19T07:34:46.515390+00:00",
   "source": "Steam + Dotabuff (OpenDota fallback)",
   "players": [
     {
@@ -11,8 +11,8 @@
       "steamId": "76561199148161138",
       "active": true,
       "rank": "Divine 3",
-      "favoriteHero": "Invoker",
-      "avatar": "https://avatars.akamai.steamstatic.com/59dc5c3e7d6604452b17b711ae48765725202a47_full.jpg",
+      "favoriteHero": "Anti-Mage",
+      "avatar": "https://avatars.akamai.steamstatic.com/780716ea67e08451028e1c96ea66afd3613da2e1_full.jpg",
       "steamName": "Steam Community :: 641",
       "dotabuff": "https://www.dotabuff.com/players/1187895410",
       "dataSource": "OpenDota fallback"
@@ -26,7 +26,7 @@
       "steamId": "76561199096570960",
       "active": true,
       "rank": "Divine 3",
-      "favoriteHero": "Keeper of the Light",
+      "favoriteHero": "Anti-Mage",
       "avatar": "https://avatars.akamai.steamstatic.com/903c0039170e477a7a1e5722911a91576d6f64da_full.jpg",
       "steamName": "Steam Community :: NoFaceX",
       "dotabuff": "https://www.dotabuff.com/players/1136305232",
@@ -38,8 +38,14 @@
       "role": "POSITION 3",
       "roleRu": "Offlane",
       "steam": "https://steamcommunity.com/id/platinarnbklub",
-      "steamId": "",
-      "active": true
+      "steamId": "76561198846783217",
+      "active": true,
+      "avatar": "https://avatars.akamai.steamstatic.com/165b790b7ade06a31abdcf5e4cf1cd93bf3319ed_full.jpg",
+      "steamName": "Steam Community :: депутат(собачий)",
+      "rank": "Crusader 5",
+      "favoriteHero": "Anti-Mage",
+      "dataSource": "OpenDota fallback",
+      "dotabuff": "https://www.dotabuff.com/players/886517489"
     },
     {
       "nick": "Yarking",
@@ -65,7 +71,7 @@
       "steamId": "76561199129713322",
       "active": true,
       "rank": "Archon 3",
-      "favoriteHero": "Jakiro",
+      "favoriteHero": "Anti-Mage",
       "avatar": "https://avatars.akamai.steamstatic.com/68253582997c56844bb77e2dc5e5362771bdc312_full.jpg",
       "steamName": "Steam Community :: 6760 дні без сексу",
       "dotabuff": "https://www.dotabuff.com/players/1169447594",
